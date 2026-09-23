@@ -2,143 +2,20 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
+@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/bc1039c6-5e3b-436c-bb02-9eef06d61fa1/mavora-regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/c76b961e-8d3a-4160-9417-353c0fe1bf96/mavora-semibold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/cb17bc5f-693f-4fb3-ba3c-e6f6b7a38916/mavora-bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/a38a18b1-c87e-449a-8f3d-ccde3dd92890/mavora-black.ttf") format("truetype");font-weight:900;font-display:swap}
+@font-face{font-family:"Naru Sans";src:url("/__l5e/assets-v1/4d991bb2-d36c-4519-b434-3a6d7da353a7/naru-sans.ttf") format("truetype");font-weight:100 900;font-display:swap}
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans:"Naru Sans",sans-serif;--font-display:"Mavora Sans",sans-serif;--font-odia:"Noto Sans Oriya",sans-serif;
+  --color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);--color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);--color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);--color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);
+  --color-brand-red:var(--brand-red);--color-brand-gold:var(--brand-gold);--color-brand-blue:var(--brand-blue);--color-brand-stone:var(--brand-stone);--color-brand-blue-foreground:var(--brand-blue-foreground);--color-brand-red-foreground:var(--brand-red-foreground);--color-hero-foreground:var(--hero-foreground);
 }
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  }
-}
+:root{--radius:0;--background:oklch(.955 .018 82);--foreground:oklch(.20 .025 244);--card:oklch(.98 .01 82);--card-foreground:var(--foreground);--primary:oklch(.45 .18 18);--primary-foreground:oklch(.98 .01 82);--secondary:oklch(.87 .035 76);--secondary-foreground:var(--foreground);--muted:oklch(.90 .02 235);--muted-foreground:oklch(.49 .015 245);--accent:oklch(.76 .15 76);--accent-foreground:oklch(.23 .06 250);--border:oklch(.72 .025 65);--input:var(--border);--ring:var(--brand-red);--brand-red:oklch(.46 .19 18);--brand-gold:oklch(.76 .15 76);--brand-blue:oklch(.30 .095 252);--brand-stone:oklch(.48 .07 63);--brand-blue-foreground:oklch(.97 .008 90);--brand-red-foreground:oklch(.97 .008 90);--hero-foreground:oklch(.98 .005 90);--hero-overlay:oklch(.20 .07 250/.56)}
+*{box-sizing:border-box;letter-spacing:0}html{scroll-behavior:smooth}body{margin:0;background:var(--background);color:var(--foreground);font-family:"Naru Sans",sans-serif}a{text-decoration:none;color:inherit}button{color:inherit}.font-display{font-family:"Mavora Sans",sans-serif}.font-odia{font-family:"Noto Sans Oriya",sans-serif}.bg-hero-overlay{background:var(--hero-overlay)}
+.section-index,.footer-label{font-family:"Mavora Sans",sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase}.logo-zone{padding:4px 18px;background:oklch(.98 .005 90/.94)}
+.ikat-strip{height:10px;border-top:3px solid var(--brand-red);border-bottom:3px solid var(--brand-blue);background:var(--brand-gold)}
+.meghanada-card{position:relative;transition:background-color .25s,transform .25s}.meghanada-card:before{content:"";position:absolute;left:18px;right:18px;top:-1px;height:7px;border-left:30px solid var(--brand-red);border-right:30px solid var(--brand-red);background:var(--brand-blue)}.meghanada-card:hover{background:var(--secondary);transform:translateY(-5px)}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
