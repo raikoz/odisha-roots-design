@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 function NotFoundComponent() {
   return (
@@ -118,8 +120,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="min-h-screen flex flex-col bg-[#F6F1E7] text-[#141A24]">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </QueryClientProvider>
   );
 }

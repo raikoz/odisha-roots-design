@@ -1,21 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700;900&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
-@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/bc1039c6-5e3b-436c-bb02-9eef06d61fa1/mavora-regular.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/c76b961e-8d3a-4160-9417-353c0fe1bf96/mavora-semibold.ttf") format("truetype");font-weight:600;font-display:swap}
-@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/cb17bc5f-693f-4fb3-ba3c-e6f6b7a38916/mavora-bold.ttf") format("truetype");font-weight:700;font-display:swap}
-@font-face{font-family:"Mavora Sans";src:url("/__l5e/assets-v1/a38a18b1-c87e-449a-8f3d-ccde3dd92890/mavora-black.ttf") format("truetype");font-weight:900;font-display:swap}
-@font-face{font-family:"Naru Sans";src:url("/__l5e/assets-v1/4d991bb2-d36c-4519-b434-3a6d7da353a7/naru-sans.ttf") format("truetype");font-weight:100 900;font-display:swap}
+/* Brand Typography: Mavora Sans */
+@font-face {
+  font-family: "Mavora Sans";
+  src: url("/fonts/mavorasans-normalregular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mavora Sans";
+  src: url("/fonts/mavorasans-normalsemibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mavora Sans";
+  src: url("/fonts/mavorasans-normalbold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mavora Sans";
+  src: url("/fonts/mavorasans-normalextrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mavora Sans";
+  src: url("/fonts/mavorasans-normalblack.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Secondary Typography: Naru Sans */
+@font-face {
+  font-family: "Naru Sans";
+  src: url("/fonts/Naru Sans Demo.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme inline {
-  --font-sans:"Naru Sans",sans-serif;--font-display:"Mavora Sans",sans-serif;--font-odia:"Noto Sans Oriya",sans-serif;
-  --color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);--color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);--color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);--color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);
-  --color-brand-red:var(--brand-red);--color-brand-gold:var(--brand-gold);--color-brand-blue:var(--brand-blue);--color-brand-stone:var(--brand-stone);--color-brand-blue-foreground:var(--brand-blue-foreground);--color-brand-red-foreground:var(--brand-red-foreground);--color-hero-foreground:var(--hero-foreground);
+  --font-sans: "Naru Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Mavora Sans", sans-serif;
+  --font-odia: "Noto Sans Oriya", sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-red: var(--brand-red);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-stone: var(--brand-stone);
+  --color-ivory-sand: var(--ivory-sand);
+  --color-sandstone-beige: var(--sandstone-beige);
+  --color-lotus-blush: var(--lotus-blush);
+  --color-palm-leaf: var(--palm-leaf);
+  --color-mahanadi-mist: var(--mahanadi-mist);
+  --color-slate-grey: var(--slate-grey);
 }
-:root{--radius:0;--background:oklch(.955 .018 82);--foreground:oklch(.20 .025 244);--card:oklch(.98 .01 82);--card-foreground:var(--foreground);--primary:oklch(.45 .18 18);--primary-foreground:oklch(.98 .01 82);--secondary:oklch(.87 .035 76);--secondary-foreground:var(--foreground);--muted:oklch(.90 .02 235);--muted-foreground:oklch(.49 .015 245);--accent:oklch(.76 .15 76);--accent-foreground:oklch(.23 .06 250);--border:oklch(.72 .025 65);--input:var(--border);--ring:var(--brand-red);--brand-red:oklch(.46 .19 18);--brand-gold:oklch(.76 .15 76);--brand-blue:oklch(.30 .095 252);--brand-stone:oklch(.48 .07 63);--brand-blue-foreground:oklch(.97 .008 90);--brand-red-foreground:oklch(.97 .008 90);--hero-foreground:oklch(.98 .005 90);--hero-overlay:oklch(.20 .07 250/.56)}
-*{box-sizing:border-box;letter-spacing:0}html{scroll-behavior:smooth}body{margin:0;background:var(--background);color:var(--foreground);font-family:"Naru Sans",sans-serif}a{text-decoration:none;color:inherit}button{color:inherit}.font-display{font-family:"Mavora Sans",sans-serif}.font-odia{font-family:"Noto Sans Oriya",sans-serif}.bg-hero-overlay{background:var(--hero-overlay)}
-.section-index,.footer-label{font-family:"Mavora Sans",sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase}.logo-zone{padding:4px 18px;background:oklch(.98 .005 90/.94)}
-.ikat-strip{height:10px;border-top:3px solid var(--brand-red);border-bottom:3px solid var(--brand-blue);background:var(--brand-gold)}
-.meghanada-card{position:relative;transition:background-color .25s,transform .25s}.meghanada-card:before{content:"";position:absolute;left:18px;right:18px;top:-1px;height:7px;border-left:30px solid var(--brand-red);border-right:30px solid var(--brand-red);background:var(--brand-blue)}.meghanada-card:hover{background:var(--secondary);transform:translateY(-5px)}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+:root {
+  --radius: 0;
+  /* Approved Palette */
+  --brand-red: #B31842;
+  --brand-gold: #ECA445;
+  --brand-blue: #093060;
+  --brand-stone: #7E5836;
+
+  --ivory-sand: #F6F1E7;
+  --sandstone-beige: #E2D2BB;
+  --lotus-blush: #E9C8C2;
+  --palm-leaf: #728C69;
+  --mahanadi-mist: #D6E3EC;
+  --slate-grey: #6D737A;
+
+  --background: #F6F1E7;
+  --foreground: #141A24;
+  --card: #FFFFFF;
+  --card-foreground: #141A24;
+  --primary: #B31842;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E2D2BB;
+  --secondary-foreground: #141A24;
+  --muted: #D6E3EC;
+  --muted-foreground: #6D737A;
+  --accent: #ECA445;
+  --accent-foreground: #093060;
+  --border: #D1C5B4;
+  --input: #D1C5B4;
+  --ring: #B31842;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-odia {
+  font-family: var(--font-odia);
+}
+
+/* Minimalist / Brutalist Architectural Components */
+.section-kicker {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Meghanada Pacheri Architectural Framing */
+.meghanada-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.meghanada-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-red);
+  box-shadow: 0 12px 24px -10px rgba(179, 24, 66, 0.15);
+}
+
+/* Seamless Dual Pattern Banners */
+.banner-strip-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.banner-strip-repeat {
+  height: 28px;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+.banner-strip-chakra-red {
+  background-image: url('/assets/banner_chakra_red.png');
+}
+
+.banner-strip-chakra-blue {
+  background-image: url('/assets/banner_chakra_blue.png');
+}
+
+.banner-strip-ikat-red-black {
+  background-image: url('/assets/banner_ikat_red_black.png');
+}
+
+.banner-strip-ikat-red-blue {
+  background-image: url('/assets/banner_ikat_red_blue.png');
+}
+
+.banner-strip-pacheri-stone {
+  background-image: url('/assets/banner_pacheri_stone.png');
+}
+
+.banner-strip-pacheri-red {
+  background-image: url('/assets/banner_pacheri_red.png');
+}
+
+.banner-strip-stripes {
+  background-image: url('/assets/banner_stripes_red.png');
+}
+
+/* Custom interactive buttons */
+.btn-primary {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--brand-red);
+  color: #FFFFFF;
+  padding: 0.85rem 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: background-color 0.2s, transform 0.2s;
+  border: 1px solid var(--brand-red);
+}
+
+.btn-primary:hover {
+  background-color: #901334;
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--brand-gold);
+  color: var(--brand-blue);
+  padding: 0.85rem 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: transform 0.2s, background-color 0.2s;
+  border: 1px solid var(--brand-gold);
+}
+
+.btn-gold:hover {
+  background-color: #dba136;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid currentColor;
+  padding: 0.8rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: currentColor;
+  color: var(--background);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

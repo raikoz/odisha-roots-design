@@ -10,33 +10,310 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnnouncementsRouteImport } from './routes/announcements'
+import { Route as ChaptersRouteImport } from './routes/chapters'
+import { Route as ConstitutionRouteImport } from './routes/constitution'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LeadershipProgramRouteImport } from './routes/leadership-program'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as AboutAdministrationRouteImport } from './routes/about.administration'
+import { Route as AboutFormsRouteImport } from './routes/about.forms'
+import { Route as AboutMemberRightsRouteImport } from './routes/about.member-rights'
+import { Route as AboutPolicyDocumentsRouteImport } from './routes/about.policy-documents'
+import { Route as AboutVisionMissionRouteImport } from './routes/about.vision-mission'
+import { Route as ActivitiesAwardsRouteImport } from './routes/activities.awards'
+import { Route as ActivitiesConventionRouteImport } from './routes/activities.convention'
+import { Route as MembersBenefitsRouteImport } from './routes/members.benefits'
+import { Route as PublicationsUrmiRouteImport } from './routes/publications.urmi'
+import { Route as PublicationsUtkarsaRouteImport } from './routes/publications.utkarsa'
+import { Route as ActivitiesConventionPastRouteImport } from './routes/activities.convention.past'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnnouncementsRoute = AnnouncementsRouteImport.update({
+  id: '/announcements',
+  path: '/announcements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChaptersRoute = ChaptersRouteImport.update({
+  id: '/chapters',
+  path: '/chapters',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConstitutionRoute = ConstitutionRouteImport.update({
+  id: '/constitution',
+  path: '/constitution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadershipProgramRoute = LeadershipProgramRouteImport.update({
+  id: '/leadership-program',
+  path: '/leadership-program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAdministrationRoute = AboutAdministrationRouteImport.update({
+  id: '/about/administration',
+  path: '/about/administration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutFormsRoute = AboutFormsRouteImport.update({
+  id: '/about/forms',
+  path: '/about/forms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutMemberRightsRoute = AboutMemberRightsRouteImport.update({
+  id: '/about/member-rights',
+  path: '/about/member-rights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutPolicyDocumentsRoute = AboutPolicyDocumentsRouteImport.update({
+  id: '/about/policy-documents',
+  path: '/about/policy-documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutVisionMissionRoute = AboutVisionMissionRouteImport.update({
+  id: '/about/vision-mission',
+  path: '/about/vision-mission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesAwardsRoute = ActivitiesAwardsRouteImport.update({
+  id: '/activities/awards',
+  path: '/activities/awards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesConventionRoute = ActivitiesConventionRouteImport.update({
+  id: '/activities/convention',
+  path: '/activities/convention',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembersBenefitsRoute = MembersBenefitsRouteImport.update({
+  id: '/members/benefits',
+  path: '/members/benefits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicationsUrmiRoute = PublicationsUrmiRouteImport.update({
+  id: '/publications/urmi',
+  path: '/publications/urmi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicationsUtkarsaRoute = PublicationsUtkarsaRouteImport.update({
+  id: '/publications/utkarsa',
+  path: '/publications/utkarsa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesConventionPastRoute =
+  ActivitiesConventionPastRouteImport.update({
+    id: '/past',
+    path: '/past',
+    getParentRoute: () => ActivitiesConventionRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/chapters': typeof ChaptersRoute
+  '/constitution': typeof ConstitutionRoute
+  '/donate': typeof DonateRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership-program': typeof LeadershipProgramRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/services': typeof ServicesRoute
+  '/about/administration': typeof AboutAdministrationRoute
+  '/about/forms': typeof AboutFormsRoute
+  '/about/member-rights': typeof AboutMemberRightsRoute
+  '/about/policy-documents': typeof AboutPolicyDocumentsRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/activities/awards': typeof ActivitiesAwardsRoute
+  '/activities/convention': typeof ActivitiesConventionRouteWithChildren
+  '/members/benefits': typeof MembersBenefitsRoute
+  '/publications/urmi': typeof PublicationsUrmiRoute
+  '/publications/utkarsa': typeof PublicationsUtkarsaRoute
+  '/activities/convention/past': typeof ActivitiesConventionPastRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/chapters': typeof ChaptersRoute
+  '/constitution': typeof ConstitutionRoute
+  '/donate': typeof DonateRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership-program': typeof LeadershipProgramRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/services': typeof ServicesRoute
+  '/about/administration': typeof AboutAdministrationRoute
+  '/about/forms': typeof AboutFormsRoute
+  '/about/member-rights': typeof AboutMemberRightsRoute
+  '/about/policy-documents': typeof AboutPolicyDocumentsRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/activities/awards': typeof ActivitiesAwardsRoute
+  '/activities/convention': typeof ActivitiesConventionRouteWithChildren
+  '/members/benefits': typeof MembersBenefitsRoute
+  '/publications/urmi': typeof PublicationsUrmiRoute
+  '/publications/utkarsa': typeof PublicationsUtkarsaRoute
+  '/activities/convention/past': typeof ActivitiesConventionPastRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/announcements': typeof AnnouncementsRoute
+  '/chapters': typeof ChaptersRoute
+  '/constitution': typeof ConstitutionRoute
+  '/donate': typeof DonateRoute
+  '/gallery': typeof GalleryRoute
+  '/leadership-program': typeof LeadershipProgramRoute
+  '/login': typeof LoginRoute
+  '/news': typeof NewsRoute
+  '/register': typeof RegisterRoute
+  '/services': typeof ServicesRoute
+  '/about/administration': typeof AboutAdministrationRoute
+  '/about/forms': typeof AboutFormsRoute
+  '/about/member-rights': typeof AboutMemberRightsRoute
+  '/about/policy-documents': typeof AboutPolicyDocumentsRoute
+  '/about/vision-mission': typeof AboutVisionMissionRoute
+  '/activities/awards': typeof ActivitiesAwardsRoute
+  '/activities/convention': typeof ActivitiesConventionRouteWithChildren
+  '/members/benefits': typeof MembersBenefitsRoute
+  '/publications/urmi': typeof PublicationsUrmiRoute
+  '/publications/utkarsa': typeof PublicationsUtkarsaRoute
+  '/activities/convention/past': typeof ActivitiesConventionPastRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/announcements'
+    | '/chapters'
+    | '/constitution'
+    | '/donate'
+    | '/gallery'
+    | '/leadership-program'
+    | '/login'
+    | '/news'
+    | '/register'
+    | '/services'
+    | '/about/administration'
+    | '/about/forms'
+    | '/about/member-rights'
+    | '/about/policy-documents'
+    | '/about/vision-mission'
+    | '/activities/awards'
+    | '/activities/convention'
+    | '/members/benefits'
+    | '/publications/urmi'
+    | '/publications/utkarsa'
+    | '/activities/convention/past'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/announcements'
+    | '/chapters'
+    | '/constitution'
+    | '/donate'
+    | '/gallery'
+    | '/leadership-program'
+    | '/login'
+    | '/news'
+    | '/register'
+    | '/services'
+    | '/about/administration'
+    | '/about/forms'
+    | '/about/member-rights'
+    | '/about/policy-documents'
+    | '/about/vision-mission'
+    | '/activities/awards'
+    | '/activities/convention'
+    | '/members/benefits'
+    | '/publications/urmi'
+    | '/publications/utkarsa'
+    | '/activities/convention/past'
+  id:
+    | '__root__'
+    | '/'
+    | '/announcements'
+    | '/chapters'
+    | '/constitution'
+    | '/donate'
+    | '/gallery'
+    | '/leadership-program'
+    | '/login'
+    | '/news'
+    | '/register'
+    | '/services'
+    | '/about/administration'
+    | '/about/forms'
+    | '/about/member-rights'
+    | '/about/policy-documents'
+    | '/about/vision-mission'
+    | '/activities/awards'
+    | '/activities/convention'
+    | '/members/benefits'
+    | '/publications/urmi'
+    | '/publications/utkarsa'
+    | '/activities/convention/past'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnnouncementsRoute: typeof AnnouncementsRoute
+  ChaptersRoute: typeof ChaptersRoute
+  ConstitutionRoute: typeof ConstitutionRoute
+  DonateRoute: typeof DonateRoute
+  GalleryRoute: typeof GalleryRoute
+  LeadershipProgramRoute: typeof LeadershipProgramRoute
+  LoginRoute: typeof LoginRoute
+  NewsRoute: typeof NewsRoute
+  RegisterRoute: typeof RegisterRoute
+  ServicesRoute: typeof ServicesRoute
+  AboutAdministrationRoute: typeof AboutAdministrationRoute
+  AboutFormsRoute: typeof AboutFormsRoute
+  AboutMemberRightsRoute: typeof AboutMemberRightsRoute
+  AboutPolicyDocumentsRoute: typeof AboutPolicyDocumentsRoute
+  AboutVisionMissionRoute: typeof AboutVisionMissionRoute
+  ActivitiesAwardsRoute: typeof ActivitiesAwardsRoute
+  ActivitiesConventionRoute: typeof ActivitiesConventionRouteWithChildren
+  MembersBenefitsRoute: typeof MembersBenefitsRoute
+  PublicationsUrmiRoute: typeof PublicationsUrmiRoute
+  PublicationsUtkarsaRoute: typeof PublicationsUtkarsaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +325,189 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/announcements': {
+      id: '/announcements'
+      path: '/announcements'
+      fullPath: '/announcements'
+      preLoaderRoute: typeof AnnouncementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chapters': {
+      id: '/chapters'
+      path: '/chapters'
+      fullPath: '/chapters'
+      preLoaderRoute: typeof ChaptersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/constitution': {
+      id: '/constitution'
+      path: '/constitution'
+      fullPath: '/constitution'
+      preLoaderRoute: typeof ConstitutionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leadership-program': {
+      id: '/leadership-program'
+      path: '/leadership-program'
+      fullPath: '/leadership-program'
+      preLoaderRoute: typeof LeadershipProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/administration': {
+      id: '/about/administration'
+      path: '/about/administration'
+      fullPath: '/about/administration'
+      preLoaderRoute: typeof AboutAdministrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/forms': {
+      id: '/about/forms'
+      path: '/about/forms'
+      fullPath: '/about/forms'
+      preLoaderRoute: typeof AboutFormsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/member-rights': {
+      id: '/about/member-rights'
+      path: '/about/member-rights'
+      fullPath: '/about/member-rights'
+      preLoaderRoute: typeof AboutMemberRightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/policy-documents': {
+      id: '/about/policy-documents'
+      path: '/about/policy-documents'
+      fullPath: '/about/policy-documents'
+      preLoaderRoute: typeof AboutPolicyDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/vision-mission': {
+      id: '/about/vision-mission'
+      path: '/about/vision-mission'
+      fullPath: '/about/vision-mission'
+      preLoaderRoute: typeof AboutVisionMissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities/awards': {
+      id: '/activities/awards'
+      path: '/activities/awards'
+      fullPath: '/activities/awards'
+      preLoaderRoute: typeof ActivitiesAwardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities/convention': {
+      id: '/activities/convention'
+      path: '/activities/convention'
+      fullPath: '/activities/convention'
+      preLoaderRoute: typeof ActivitiesConventionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/members/benefits': {
+      id: '/members/benefits'
+      path: '/members/benefits'
+      fullPath: '/members/benefits'
+      preLoaderRoute: typeof MembersBenefitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publications/urmi': {
+      id: '/publications/urmi'
+      path: '/publications/urmi'
+      fullPath: '/publications/urmi'
+      preLoaderRoute: typeof PublicationsUrmiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publications/utkarsa': {
+      id: '/publications/utkarsa'
+      path: '/publications/utkarsa'
+      fullPath: '/publications/utkarsa'
+      preLoaderRoute: typeof PublicationsUtkarsaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities/convention/past': {
+      id: '/activities/convention/past'
+      path: '/past'
+      fullPath: '/activities/convention/past'
+      preLoaderRoute: typeof ActivitiesConventionPastRouteImport
+      parentRoute: typeof ActivitiesConventionRoute
+    }
   }
 }
 
+interface ActivitiesConventionRouteChildren {
+  ActivitiesConventionPastRoute: typeof ActivitiesConventionPastRoute
+}
+
+const ActivitiesConventionRouteChildren: ActivitiesConventionRouteChildren = {
+  ActivitiesConventionPastRoute: ActivitiesConventionPastRoute,
+}
+
+const ActivitiesConventionRouteWithChildren =
+  ActivitiesConventionRoute._addFileChildren(ActivitiesConventionRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnnouncementsRoute: AnnouncementsRoute,
+  ChaptersRoute: ChaptersRoute,
+  ConstitutionRoute: ConstitutionRoute,
+  DonateRoute: DonateRoute,
+  GalleryRoute: GalleryRoute,
+  LeadershipProgramRoute: LeadershipProgramRoute,
+  LoginRoute: LoginRoute,
+  NewsRoute: NewsRoute,
+  RegisterRoute: RegisterRoute,
+  ServicesRoute: ServicesRoute,
+  AboutAdministrationRoute: AboutAdministrationRoute,
+  AboutFormsRoute: AboutFormsRoute,
+  AboutMemberRightsRoute: AboutMemberRightsRoute,
+  AboutPolicyDocumentsRoute: AboutPolicyDocumentsRoute,
+  AboutVisionMissionRoute: AboutVisionMissionRoute,
+  ActivitiesAwardsRoute: ActivitiesAwardsRoute,
+  ActivitiesConventionRoute: ActivitiesConventionRouteWithChildren,
+  MembersBenefitsRoute: MembersBenefitsRoute,
+  PublicationsUrmiRoute: PublicationsUrmiRoute,
+  PublicationsUtkarsaRoute: PublicationsUtkarsaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
