@@ -36,6 +36,7 @@ const executives = [
     term: "2025–2027",
     num: "01",
     odia: "ସଭାପତି",
+    image: "/assets/team/nageswar_rajanala.jpg",
     desc: "Overseeing executive administration, continental chapters, and international cultural exchange.",
   },
   {
@@ -44,6 +45,7 @@ const executives = [
     term: "2025–2027",
     num: "02",
     odia: "ଉପ-ସଭାପତି",
+    image: "/assets/team/utkal_nayak.jpg",
     desc: "Leading chapter coordination, youth initiatives, and special organizational programs.",
   },
   {
@@ -52,6 +54,7 @@ const executives = [
     term: "2025–2027",
     num: "03",
     odia: "ସମ୍ପାଦିକା",
+    image: "/assets/team/snigdha_hota.jpg",
     desc: "Managing society records, national communications, publications, and governance correspondence.",
   },
   {
@@ -60,6 +63,7 @@ const executives = [
     term: "2025–2027",
     num: "04",
     odia: "କୋଷାଧ୍ୟକ୍ଷ",
+    image: "/assets/team/sanjeeb_rout.jpg",
     desc: "Fiduciary custodian overseeing 501(c)(3) compliance, endowment funds, and fiscal stewardship.",
   },
 ];
@@ -388,7 +392,7 @@ function HomePage() {
           </Link>
         </div>
 
-        {/* 4 Architectural Meghanada Pacheri Cards */}
+        {/* 4 Architectural Meghanada Pacheri Cards with Authentic Leadership Portraits */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {executives.map((exec) => (
             <MeghanadaCard
@@ -397,6 +401,7 @@ function HomePage() {
               role={exec.role}
               odiaTitle={exec.odia}
               number={exec.num}
+              image={exec.image}
               variant="default"
               subtitle={`${exec.term} Executive Mandate`}
             >

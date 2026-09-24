@@ -45,17 +45,17 @@ export const Header: React.FC = () => {
 
       {/* Main Navigation Bar */}
       <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo with strict exclusion zone: minimum 100px height compliance */}
+        <div className="flex items-center justify-between h-20">
+          {/* Official OSA Logo - Clean transparent background, balanced compact proportions */}
           <Link
             to="/"
-            className="flex items-center py-2 px-3 transition-opacity hover:opacity-95"
+            className="flex items-center py-1 transition-opacity hover:opacity-90"
             aria-label="The Odisha Society of the Americas"
           >
             <img
               src="/assets/osa_logo.png"
-              alt="OSA - The Odisha Society of the Americas"
-              className="h-[52px] md:h-[62px] w-auto object-contain select-none"
+              alt="The Odisha Society of the Americas"
+              className="h-[36px] md:h-[42px] w-auto object-contain select-none"
             />
           </Link>
 

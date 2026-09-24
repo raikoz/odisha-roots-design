@@ -25,6 +25,7 @@ const executives = [
     email: "president@odishasociety.org",
     num: "01",
     odia: "ସଭାପତି",
+    image: "/assets/team/nageswar_rajanala.jpg",
     bio: "Guiding strategic vision, pan-American cultural partnerships, institutional development, and international youth outreach.",
   },
   {
@@ -34,6 +35,7 @@ const executives = [
     email: "vp@odishasociety.org",
     num: "02",
     odia: "ଉପ-ସଭାପତି",
+    image: "/assets/team/utkal_nayak.jpg",
     bio: "Directing chapter affairs, convention coordination, and cross-chapter volunteer mobilization.",
   },
   {
@@ -43,6 +45,7 @@ const executives = [
     email: "secretary@odishasociety.org",
     num: "03",
     odia: "ସମ୍ପାଦିକା",
+    image: "/assets/team/snigdha_hota.jpg",
     bio: "Managing institutional archives, annual secretarial reports, national correspondence, and governance documentation.",
   },
   {
@@ -52,6 +55,7 @@ const executives = [
     email: "treasurer@odishasociety.org",
     num: "04",
     odia: "କୋଷାଧ୍ୟକ୍ଷ",
+    image: "/assets/team/sanjeeb_rout.jpg",
     bio: "Fiduciary management, 501(c)(3) tax reporting, budget planning, and treasury disbursements.",
   },
 ];
@@ -116,6 +120,7 @@ function AdministrationPage() {
                 role={exec.role}
                 odiaTitle={exec.odia}
                 number={exec.num}
+                image={exec.image}
                 variant="default"
                 subtitle={exec.term}
               >

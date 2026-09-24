@@ -19,11 +19,11 @@ export const Footer: React.FC = () => {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
           {/* Column 1: Brand & Identity */}
           <div className="space-y-6">
-            <Link to="/" className="inline-block bg-[#F6F1E7] p-3 rounded-none border border-[#ECA445]">
+            <Link to="/" className="inline-block transition-opacity hover:opacity-90" aria-label="The Odisha Society of the Americas">
               <img
-                src="/assets/osa_logo.png"
-                alt="OSA Logo"
-                className="h-[54px] w-auto object-contain"
+                src="/assets/osa_logo_white.png"
+                alt="The Odisha Society of the Americas"
+                className="h-[36px] md:h-[40px] w-auto object-contain select-none"
               />
             </Link>
 
