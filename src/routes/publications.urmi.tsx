@@ -88,7 +88,7 @@ function UrmiPage() {
                       href="https://www.odishasociety.org/souvenirs/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-outline text-xs whitespace-nowrap text-[#093060]"
+                      className="btn-outline-blue text-xs whitespace-nowrap bg-white/70 hover:bg-[#093060] hover:text-white hover:border-[#093060] transition-all duration-200"
                     >
                       Digital Archive <Download size={14} />
                     </a>

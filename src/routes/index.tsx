@@ -278,7 +278,7 @@ function HomePage() {
               </Link>
               <Link
                 to="/constitution"
-                className="btn-outline text-xs text-[#141A24]"
+                className="btn-outline text-xs text-[#141A24] bg-white/70 hover:bg-[#141A24] hover:text-white hover:border-[#141A24] transition-all duration-200"
               >
                 View Full Bylaws
               </Link>
@@ -521,7 +521,10 @@ function HomePage() {
                 <Link to="/register" className="btn-primary text-xs sm:text-sm">
                   Join As Permanent Member <ArrowRight size={16} />
                 </Link>
-                <Link to="/members/benefits" className="btn-outline text-xs sm:text-sm text-[#141A24]">
+                <Link
+                  to="/members/benefits"
+                  className="btn-outline text-xs sm:text-sm text-[#141A24] bg-white/70 hover:bg-[#141A24] hover:text-white hover:border-[#141A24] transition-all duration-200 shadow-sm hover:shadow-md"
+                >
                   Explore All Member Tiers
                 </Link>
               </div>

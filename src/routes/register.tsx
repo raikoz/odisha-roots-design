@@ -295,7 +295,7 @@ function RegisterPage() {
               <p className="text-xs text-[#6D737A]">
                 Sign in to verify your membership credentials or update your family directory address.
               </p>
-              <Link to="/login" className="btn-outline text-xs block text-center text-[#141A24]">
+              <Link to="/login" className="btn-outline text-xs block text-center text-[#141A24] bg-white hover:bg-[#141A24] hover:text-white hover:border-[#141A24] transition-all duration-200">
                 Sign In to Portal
               </Link>
             </div>
