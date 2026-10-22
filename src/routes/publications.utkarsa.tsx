@@ -5,7 +5,7 @@ import { Newspaper, Download, Mail, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/publications/utkarsa")({
   head: () => ({
     meta: [
-      { title: "Utkarsa — Quarterly Newsletter | OSA" },
+      { title: "Utkarsa  -  Quarterly Newsletter | OSA" },
       {
         name: "description",
         content:
@@ -34,7 +34,7 @@ function UtkarsaPage() {
               Quarterly Community Bulletin
             </span>
             <p className="font-odia text-3xl md:text-4xl text-[#ECA445]">
-              ଉତ୍କର୍ଷ — ତ୍ରୈମାସିକ ବୁଲେଟିନ୍
+              ଉତ୍କର୍ଷ  -  ତ୍ରୈମାସିକ ବୁଲେଟିନ୍
             </p>
             <h1 className="font-display text-5xl sm:text-7xl font-black uppercase tracking-tight leading-none">
               Utkarsa Newsletter

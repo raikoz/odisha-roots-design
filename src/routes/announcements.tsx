@@ -19,7 +19,7 @@ export const Route = createFileRoute("/announcements")({
 const notices = [
   {
     type: "Urgent Deadline",
-    title: "Call for Cultural Program Entries — Minneapolis 2026",
+    title: "Call for Cultural Program Entries  -  Minneapolis 2026",
     deadline: "Deadline: April 15, 2026",
     desc: "All regional chapters and independent artistic troupes must submit their stage production audio/video reels and participant rosters for convention scheduling.",
   },

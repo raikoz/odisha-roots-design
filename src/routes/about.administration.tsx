@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PatternBanner } from "../components/PatternBanner";
 import { MeghanadaCard } from "../components/MeghanadaCard";
+import { ExecutiveCard, ExecutiveMember } from "../components/ExecutiveCard";
 import { Shield, Mail, Users, Award, ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/about/administration")({
@@ -10,65 +11,65 @@ export const Route = createFileRoute("/about/administration")({
       {
         name: "description",
         content:
-          "Executive Officers, Board of Governors (BOG), and Chapter Representatives leading OSA for the 2025–2027 term.",
+          "Executive Officers, Board of Governors (BOG), and Chapter Representatives leading OSA for the 2025-2027 term.",
       },
     ],
   }),
   component: AdministrationPage,
 });
 
-const executives = [
+const executives: ExecutiveMember[] = [
   {
     name: "Nageswar Rajanala",
     role: "President",
-    term: "2025–2027",
+    term: "2025-2027",
+    location: "Dallas, TX",
     email: "president@odishasociety.org",
-    num: "01",
-    odia: "ସଭାପତି",
     image: "/assets/team/nageswar_rajanala.jpg",
     bio: "Guiding strategic vision, pan-American cultural partnerships, institutional development, and international youth outreach.",
+    linkedin: "https://www.linkedin.com/in/nageswar-rajanala-3a059b8/",
   },
   {
     name: "Utkal Nayak",
     role: "Vice President",
-    term: "2025–2027",
+    term: "2025-2027",
+    location: "Columbus, OH",
     email: "vp@odishasociety.org",
-    num: "02",
-    odia: "ଉପ-ସଭାପତି",
     image: "/assets/team/utkal_nayak.jpg",
     bio: "Directing chapter affairs, convention coordination, and cross-chapter volunteer mobilization.",
+    linkedin: "https://www.linkedin.com/in/utkalnayak/",
   },
   {
     name: "Snigdha Hota",
     role: "Secretary",
-    term: "2025–2027",
+    term: "2025-2027",
+    location: "Fremont, CA",
     email: "secretary@odishasociety.org",
-    num: "03",
-    odia: "ସମ୍ପାଦିକା",
     image: "/assets/team/snigdha_hota.jpg",
     bio: "Managing institutional archives, annual secretarial reports, national correspondence, and governance documentation.",
+    linkedin: "https://www.linkedin.com/in/snigdha-hota/",
   },
   {
     name: "Sanjeeb Rout",
     role: "Treasurer",
-    term: "2025–2027",
+    term: "2025-2027",
+    location: "Chicago, IL",
     email: "treasurer@odishasociety.org",
-    num: "04",
-    odia: "କୋଷାଧ୍ୟକ୍ଷ",
     image: "/assets/team/sanjeeb_rout.jpg",
     bio: "Fiduciary management, 501(c)(3) tax reporting, budget planning, and treasury disbursements.",
+    linkedin: "https://www.linkedin.com/in/sanjeebrout/",
   },
 ];
 
 const bogMembers = [
-  { region: "California (San Francisco Bay)", rep: "Pradosh Mohanty", term: "2025–2027" },
-  { region: "Mid-Atlantic Chapter", rep: "Debashis Mohapatra", term: "2025–2027" },
-  { region: "New England Chapter", rep: "Suchitra Mishra", term: "2025–2027" },
-  { region: "Midwest Chapter (Chicago)", rep: "Alok Dash", term: "2025–2027" },
-  { region: "Texas Chapter (Houston/Dallas)", rep: "Bijay Mohapatra", term: "2025–2027" },
-  { region: "Canada Chapter (Toronto/Ottawa)", rep: "Ranjan Pattnaik", term: "2025–2027" },
-  { region: "Southern Chapter (Atlanta)", rep: "Manoj Senapati", term: "2025–2027" },
-  { region: "Pacific Northwest (Seattle)", rep: "Smita Behera", term: "2025–2027" },
+  { region: "California (San Francisco Bay)", rep: "Pradosh Mohanty", term: "2025-2027" },
+  { region: "Mid-Atlantic Chapter", rep: "Debashis Mohapatra", term: "2025-2027" },
+  { region: "New England Chapter", rep: "Suchitra Mishra", term: "2025-2027" },
+  { region: "Midwest Chapter (Chicago)", rep: "Alok Dash", term: "2025-2027" },
+  { region: "Texas Chapter (Houston/Dallas)", rep: "Bijay Mohapatra", term: "2025-2027" },
+  { region: "Canada Chapter (Toronto/Ottawa)", rep: "Ranjan Pattnaik", term: "2025-2027" },
+  { region: "Southern Chapter (Atlanta)", rep: "Manoj Senapati", term: "2025-2027" },
+  { region: "Pacific Northwest (Seattle)", rep: "Smita Behera", term: "2025-2027" },
 ];
 
 function AdministrationPage() {
@@ -79,7 +80,7 @@ function AdministrationPage() {
         <div className="mx-auto max-w-[1480px] px-5 md:px-10">
           <div className="max-w-4xl space-y-4">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-[#ECA445]">
-              Executive Governance · 2025–2027 Term
+              Executive Governance · 2025-2027 Term
             </span>
             <p className="font-odia text-3xl md:text-4xl text-[#ECA445]">
               କାର୍ଯ୍ୟକାରୀ କମିଟି ଓ ପ୍ରଶାସନିକ ପରିଷଦ
@@ -104,7 +105,7 @@ function AdministrationPage() {
             <div>
               <span className="section-kicker text-[#B31842]">National Office</span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold uppercase text-[#141A24]">
-                National Executive Committee (2025–2027)
+                National Executive Committee (2025-2027)
               </h2>
             </div>
             <p className="text-xs font-display uppercase tracking-wider text-[#6D737A]">
@@ -114,26 +115,7 @@ function AdministrationPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {executives.map((exec) => (
-              <MeghanadaCard
-                key={exec.name}
-                title={exec.name}
-                role={exec.role}
-                odiaTitle={exec.odia}
-                number={exec.num}
-                image={exec.image}
-                variant="default"
-                subtitle={exec.term}
-              >
-                <p className="text-xs text-[#141A24]/80 leading-relaxed font-sans mb-4">
-                  {exec.bio}
-                </p>
-                <a
-                  href={`mailto:${exec.email}`}
-                  className="inline-flex items-center gap-1.5 text-[11px] font-display uppercase font-bold text-[#B31842] hover:underline"
-                >
-                  <Mail size={12} /> {exec.email}
-                </a>
-              </MeghanadaCard>
+              <ExecutiveCard key={exec.name} member={exec} />
             ))}
           </div>
         </div>

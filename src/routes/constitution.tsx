@@ -1,6 +1,20 @@
+import React, { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PatternBanner } from "../components/PatternBanner";
-import { Scroll, Shield, FileText, ChevronRight, BookOpen } from "lucide-react";
+import {
+  Scroll,
+  Shield,
+  FileText,
+  ChevronRight,
+  ChevronDown,
+  Search,
+  BookOpen,
+  Scale,
+  Maximize2,
+  Minimize2,
+  ExternalLink,
+} from "lucide-react";
+import { constitutionData, LegalArticle } from "../data/constitutionData";
 
 export const Route = createFileRoute("/constitution")({
   head: () => ({
@@ -9,62 +23,60 @@ export const Route = createFileRoute("/constitution")({
       {
         name: "description",
         content:
-          "Official Constitution, Bylaws, and Governance Framework of The Odisha Society of the Americas.",
+          "Codified Constitution, Bylaws, and statutory legal framework of The Odisha Society of the Americas.",
       },
     ],
   }),
   component: ConstitutionPage,
 });
 
-const articles = [
-  {
-    num: "Article I",
-    title: "Name & Official Headquarters",
-    content: "The name of the organization shall be 'The Odisha Society of the Americas' (OSA). The principal office for the transaction of the business of the Society shall be located at such place as the Board of Governors (BOG) may determine.",
-  },
-  {
-    num: "Article II",
-    title: "Aims, Objectives & Purpose",
-    content: "The Society is organized exclusively for charitable, cultural, and educational purposes under Section 501(c)(3) of the Internal Revenue Code. It fosters Odia cultural heritage, mutual fellowship, humanitarian relief, and civic engagement.",
-  },
-  {
-    num: "Article III",
-    title: "Membership Classification & Qualifications",
-    content: "Any person interested in the aims and objectives of the Society who subscribes to its Constitution shall be eligible for membership. Classes include Permanent (Life), Benefactor, Patron, Annual, and Student Members.",
-  },
-  {
-    num: "Article IV",
-    title: "Governance & The Board of Governors (BOG)",
-    content: "The legislative and policy-making body of the Society shall be the Board of Governors (BOG), consisting of the Executive Committee, Chapter Representatives, and the Immediate Past President.",
-  },
-  {
-    num: "Article V",
-    title: "Executive Officers & Responsibilities",
-    content: "The officers shall be the President, Vice President, Secretary, and Treasurer. They shall be elected by the voting members of the Society for a term of two years.",
-  },
-  {
-    num: "Article VI",
-    title: "Elections & Nomination Committee",
-    content: "A non-partisan Nomination & Election Committee shall conduct biennial elections by secret ballot or secure electronic voting according to codified BOG election procedures.",
-  },
-  {
-    num: "Article VII",
-    title: "Annual Convention & General Body Meetings",
-    content: "The Society shall hold an Annual Convention once each calendar year. The Annual General Body Meeting (AGBM) shall be held during the Annual Convention.",
-  },
-  {
-    num: "Article VIII",
-    title: "Local Chapters & Affiliations",
-    content: "Local chapters may be formed in any geographical area of the United States and Canada where twenty or more members reside, subject to BOG approval and chapter guidelines.",
-  },
-  {
-    num: "Article IX",
-    title: "Constitutional Amendments",
-    content: "Amendments to this Constitution may be proposed by the BOG or by a petition signed by at least 10% of voting members. Ratification requires a two-thirds majority of votes cast.",
-  },
-];
-
 function ConstitutionPage() {
+  const [activeTab, setActiveTab] = useState<"all" | "constitution" | "bylaw">("constitution");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({});
+
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const expandAll = () => {
+    const allIds: Record<string, boolean> = {};
+    constitutionData.forEach((item) => {
+      allIds[item.id] = true;
+    });
+    setExpandedIds(allIds);
+  };
+
+  const collapseAll = () => {
+    setExpandedIds({});
+  };
+
+  const filteredItems = useMemo(() => {
+    return constitutionData.filter((item) => {
+      // Tab filter
+      if (activeTab !== "all" && item.type !== activeTab) {
+        return false;
+      }
+      // Search filter
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const inNum = item.num.toLowerCase().includes(q);
+        const inTitle = item.title.toLowerCase().includes(q);
+        const inSummary = item.summary.toLowerCase().includes(q);
+        const inSections = item.sections.some(
+          (s) =>
+            s.title.toLowerCase().includes(q) ||
+            s.paragraphs.some((p) => p.toLowerCase().includes(q))
+        );
+        return inNum || inTitle || inSummary || inSections;
+      }
+      return true;
+    });
+  }, [activeTab, searchQuery]);
+
   return (
     <div className="bg-[#F6F1E7] text-[#141A24]">
       {/* Header Banner */}
@@ -72,7 +84,7 @@ function ConstitutionPage() {
         <div className="mx-auto max-w-[1480px] px-5 md:px-10">
           <div className="max-w-4xl space-y-4">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-[#ECA445]">
-              Governance & Legal Framework
+              Governance & Statutory Code
             </span>
             <p className="font-odia text-3xl md:text-4xl text-[#ECA445]">
               ସମ୍ବିଧାନ ଓ ଉପ-ନିୟମାବଳୀ
@@ -81,7 +93,7 @@ function ConstitutionPage() {
               Constitution & Bylaws
             </h1>
             <p className="text-base sm:text-lg text-[#F6F1E7]/90 leading-relaxed font-sans max-w-2xl">
-              The codified legal charter governing the operation, democracy, and fiduciary accountability of The Odisha Society of the Americas.
+              The codified legal charter governing the democratic operation, fiduciary accountability, executive powers, and member franchise of The Odisha Society of the Americas.
             </p>
           </div>
         </div>
@@ -89,98 +101,275 @@ function ConstitutionPage() {
 
       <PatternBanner motif="ikat-red-blue" height={18} />
 
-      {/* Content */}
-      <div className="mx-auto max-w-[1480px] px-5 py-16 md:px-10 lg:py-20">
-        <div className="grid lg:grid-cols-[1.8fr_1fr] gap-12 items-start">
-          {/* Articles Accordion / List */}
-          <div className="space-y-6">
-            <div className="border-b-2 border-[#141A24] pb-4 mb-8">
-              <h2 className="font-display text-3xl font-bold uppercase text-[#141A24]">
-                Articles of the Constitution
-              </h2>
-              <p className="text-sm text-[#6D737A]">
-                As adopted by the General Body and amended through recent constitutional referendums.
-              </p>
+      {/* Main Content Area */}
+      <div className="mx-auto max-w-[1480px] px-5 py-12 md:px-10 lg:py-16">
+        <div className="grid lg:grid-cols-[1.9fr_1fr] gap-12 items-start">
+          {/* Main Articles Column */}
+          <div className="space-y-8">
+            {/* Control Bar: Tabs, Search & Expand/Collapse */}
+            <div className="bg-white border border-[#D1C5B4] rounded-2xl p-6 shadow-sm space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                {/* Tabs */}
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => setActiveTab("constitution")}
+                    className={`px-4 py-2 font-display text-xs font-bold uppercase tracking-wider rounded-lg transition-all ${
+                      activeTab === "constitution"
+                        ? "bg-[#B31842] text-white shadow-sm"
+                        : "bg-[#F6F1E7] text-[#141A24] hover:bg-[#E2D2BB]"
+                    }`}
+                  >
+                    Constitution (Articles I - XI)
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("bylaw")}
+                    className={`px-4 py-2 font-display text-xs font-bold uppercase tracking-wider rounded-lg transition-all ${
+                      activeTab === "bylaw"
+                        ? "bg-[#093060] text-white shadow-sm"
+                        : "bg-[#F6F1E7] text-[#141A24] hover:bg-[#E2D2BB]"
+                    }`}
+                  >
+                    Bylaws (Bylaws I - XII)
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("all")}
+                    className={`px-4 py-2 font-display text-xs font-bold uppercase tracking-wider rounded-lg transition-all ${
+                      activeTab === "all"
+                        ? "bg-[#141A24] text-white shadow-sm"
+                        : "bg-[#F6F1E7] text-[#141A24] hover:bg-[#E2D2BB]"
+                    }`}
+                  >
+                    All Provisions ({constitutionData.length})
+                  </button>
+                </div>
+
+                {/* Expand / Collapse All Controls */}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={expandAll}
+                    className="p-2 text-xs font-display uppercase tracking-wider text-[#093060] hover:text-[#B31842] hover:bg-[#F6F1E7] rounded-lg transition-colors flex items-center gap-1"
+                    title="Expand all articles"
+                  >
+                    <Maximize2 size={13} /> Expand All
+                  </button>
+                  <span className="text-[#D1C5B4]">|</span>
+                  <button
+                    onClick={collapseAll}
+                    className="p-2 text-xs font-display uppercase tracking-wider text-[#093060] hover:text-[#B31842] hover:bg-[#F6F1E7] rounded-lg transition-colors flex items-center gap-1"
+                    title="Collapse all articles"
+                  >
+                    <Minimize2 size={13} /> Collapse All
+                  </button>
+                </div>
+              </div>
+
+              {/* Search Bar */}
+              <div className="relative">
+                <Search
+                  size={16}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#6D737A]"
+                />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search articles, sections, keywords (e.g. 'President', 'Chapters', 'Elections', '501(c)(3)')..."
+                  className="w-full pl-10 pr-4 py-2.5 bg-[#F6F1E7]/70 border border-[#D1C5B4] rounded-xl text-xs font-sans text-[#141A24] focus:outline-none focus:border-[#B31842] focus:bg-white transition-all"
+                />
+              </div>
             </div>
 
+            {/* List of Compact Interactive Cards */}
             <div className="space-y-4">
-              {articles.map((art) => (
-                <div
-                  key={art.num}
-                  className="bg-white border-2 border-[#D1C5B4] p-6 hover:border-[#B31842] transition-colors"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-display font-black text-xs uppercase px-2.5 py-1 bg-[#093060] text-white">
-                      {art.num}
-                    </span>
-                    <h3 className="font-display text-lg font-bold uppercase text-[#141A24]">
-                      {art.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-[#141A24]/85 leading-relaxed font-sans mt-3 pl-1">
-                    {art.content}
+              {filteredItems.length === 0 ? (
+                <div className="bg-white border border-[#D1C5B4] rounded-2xl p-12 text-center space-y-3">
+                  <BookOpen size={36} className="mx-auto text-[#B31842]" />
+                  <p className="font-display text-base font-bold uppercase text-[#141A24]">
+                    No Provisions Found
+                  </p>
+                  <p className="text-xs text-[#6D737A]">
+                    No constitutional articles match your query "{searchQuery}". Try a different keyword.
                   </p>
                 </div>
-              ))}
+              ) : (
+                filteredItems.map((item) => {
+                  const isExpanded = !!expandedIds[item.id];
+                  const isConstitution = item.type === "constitution";
+
+                  return (
+                    <div
+                      key={item.id}
+                      className={`bg-white border rounded-2xl overflow-hidden transition-all duration-200 shadow-sm hover:shadow-md ${
+                        isExpanded
+                          ? "border-[#B31842]/80 ring-1 ring-[#B31842]/20"
+                          : "border-[#D1C5B4] hover:border-[#B31842]"
+                      }`}
+                    >
+                      {/* Compact Header Row (Click to toggle dropdown) */}
+                      <div
+                        onClick={() => toggleExpand(item.id)}
+                        className="p-5 md:p-6 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-[#F6F1E7]/30 transition-colors"
+                      >
+                        <div className="flex items-start sm:items-center gap-3">
+                          <span
+                            className={`shrink-0 font-display font-black text-xs uppercase px-2.5 py-1 rounded-md text-white ${
+                              isConstitution ? "bg-[#B31842]" : "bg-[#093060]"
+                            }`}
+                          >
+                            {item.num}
+                          </span>
+                          <div>
+                            <h3 className="font-display text-base sm:text-lg font-bold uppercase text-[#141A24]">
+                              {item.title}
+                            </h3>
+                            {!isExpanded && (
+                              <p className="text-xs text-[#6D737A] font-sans mt-0.5 line-clamp-1">
+                                {item.summary}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 shrink-0 self-end sm:self-auto">
+                          <span className="text-[11px] font-display uppercase tracking-wider text-[#6D737A] bg-[#F6F1E7] px-2.5 py-0.5 rounded-md">
+                            {item.sections.length} {item.sections.length === 1 ? "Section" : "Sections"}
+                          </span>
+                          <button
+                            className={`p-1.5 rounded-lg border transition-all ${
+                              isExpanded
+                                ? "bg-[#B31842] text-white border-[#B31842]"
+                                : "bg-white text-[#141A24] border-[#D1C5B4] hover:border-[#B31842]"
+                            }`}
+                            aria-label={isExpanded ? "Collapse" : "Expand"}
+                          >
+                            <ChevronDown
+                              size={16}
+                              className={`transition-transform duration-300 ${
+                                isExpanded ? "rotate-180" : ""
+                              }`}
+                            />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Dropdown Expanded Provisions (Detailed Explanations and Subsections) */}
+                      {isExpanded && (
+                        <div className="px-6 pb-6 pt-2 border-t border-[#D1C5B4]/50 bg-[#F6F1E7]/20 space-y-6 animate-fadeIn">
+                          {item.sections.map((sec, idx) => (
+                            <div
+                              key={idx}
+                              className="bg-white border border-[#D1C5B4]/70 rounded-xl p-5 space-y-3 shadow-xs"
+                            >
+                              {sec.title && sec.title !== "General" && (
+                                <h4 className="font-display text-xs font-bold uppercase tracking-wider text-[#B31842] border-b border-[#D1C5B4]/40 pb-2 flex items-center gap-2">
+                                  <Scale size={13} /> {sec.title}
+                                </h4>
+                              )}
+                              <div className="space-y-2.5">
+                                {sec.paragraphs.map((para, pIdx) => (
+                                  <p
+                                    key={pIdx}
+                                    className="text-xs sm:text-sm text-[#141A24]/90 leading-relaxed font-sans"
+                                  >
+                                    {para}
+                                  </p>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })
+              )}
             </div>
 
-            <div className="p-6 bg-[#E2D2BB]/30 border-2 border-[#141A24] mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            {/* Official PDF Document Card */}
+            <div className="p-6 bg-[#E2D2BB]/30 border border-[#D1C5B4] rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm">
               <div>
                 <p className="font-display text-sm font-bold uppercase text-[#141A24]">
-                  Download Full Constitution PDF
+                  Official Document Archive
                 </p>
-                <p className="text-xs text-[#6D737A]">Complete document including all bylaws & amendments.</p>
+                <p className="text-xs text-[#6D737A] mt-0.5">
+                  View the official verified archive records at odishasociety.org/constitution-bylaws.
+                </p>
               </div>
               <a
                 href="https://www.odishasociety.org/constitution-bylaws/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-xs"
+                className="btn-primary text-xs rounded-lg flex items-center gap-2 whitespace-nowrap"
               >
-                Official PDF Download <FileText size={14} />
+                Official Archive <ExternalLink size={14} />
               </a>
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <div className="bg-white border-2 border-[#141A24] p-6 space-y-4 shadow-sm">
-              <h3 className="font-display text-base font-bold uppercase text-[#093060] border-b pb-2">
+          {/* Right Sidebar */}
+          <div className="space-y-6 lg:sticky lg:top-28">
+            {/* Quick Governance Links */}
+            <div className="bg-white border border-[#D1C5B4] rounded-2xl p-6 space-y-4 shadow-sm">
+              <h3 className="font-display text-sm font-bold uppercase text-[#093060] border-b border-[#D1C5B4]/60 pb-2">
                 Related Governance
               </h3>
-              <ul className="space-y-2.5 text-xs font-display uppercase tracking-wider">
+              <ul className="space-y-2 text-xs font-display uppercase tracking-wider">
                 <li>
-                  <Link to="/about/vision-mission" className="hover:text-[#B31842] flex items-center justify-between">
+                  <Link
+                    to="/about/vision-mission"
+                    className="p-2 rounded-lg hover:bg-[#F6F1E7] text-[#141A24] hover:text-[#B31842] flex items-center justify-between transition-colors"
+                  >
                     <span>Mission & Vision (Article II)</span>
                     <ChevronRight size={14} />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about/policy-documents" className="hover:text-[#B31842] flex items-center justify-between">
-                    <span>Policy Documents & Guidelines</span>
-                    <ChevronRight size={14} />
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about/administration" className="hover:text-[#B31842] flex items-center justify-between">
+                  <Link
+                    to="/about/administration"
+                    className="p-2 rounded-lg hover:bg-[#F6F1E7] text-[#141A24] hover:text-[#B31842] flex items-center justify-between transition-colors"
+                  >
                     <span>Board of Governors (BOG)</span>
                     <ChevronRight size={14} />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about/member-rights" className="hover:text-[#B31842] flex items-center justify-between">
+                  <Link
+                    to="/about/member-rights"
+                    className="p-2 rounded-lg hover:bg-[#F6F1E7] text-[#141A24] hover:text-[#B31842] flex items-center justify-between transition-colors"
+                  >
                     <span>Member Rights & Privileges</span>
+                    <ChevronRight size={14} />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about/policy-documents"
+                    className="p-2 rounded-lg hover:bg-[#F6F1E7] text-[#141A24] hover:text-[#B31842] flex items-center justify-between transition-colors"
+                  >
+                    <span>Policy Documents & Guidelines</span>
+                    <ChevronRight size={14} />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about/forms"
+                    className="p-2 rounded-lg hover:bg-[#F6F1E7] text-[#141A24] hover:text-[#B31842] flex items-center justify-between transition-colors"
+                  >
+                    <span>Official Forms & Applications</span>
                     <ChevronRight size={14} />
                   </Link>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[#B31842] text-white p-6 border-2 border-[#141A24] space-y-3">
+            {/* Fiduciary Guarantee */}
+            <div className="bg-[#B31842] text-white p-6 rounded-2xl border border-[#B31842] space-y-3 shadow-md">
               <Shield size={24} className="text-[#ECA445]" />
-              <h4 className="font-display text-lg font-bold uppercase">501(c)(3) Fiduciary Guarantee</h4>
+              <h4 className="font-display text-base font-bold uppercase">
+                501(c)(3) Fiduciary Guarantee
+              </h4>
               <p className="text-xs text-white/90 leading-relaxed font-sans">
-                OSA operations adhere to the highest standard of non-profit ethics, public transparency, and biennial audited accounting.
+                OSA operations adhere strictly to the non-profit statutory standards of the US Internal Revenue Code, including biennial external audits and public general reporting.
               </p>
             </div>
           </div>

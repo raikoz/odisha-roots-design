@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/activities/convention/past" className="hover:text-[#ECA445] transition-colors">
-                  Past Conventions (1969–2025)
+                  Past Conventions (1969-2025)
                 </Link>
               </li>
               <li>
@@ -144,12 +144,12 @@ export const Footer: React.FC = () => {
               <ul className="space-y-2.5 text-xs font-display uppercase tracking-wider">
                 <li>
                   <Link to="/publications/urmi" className="hover:text-[#ECA445] transition-colors">
-                    Urmi — Annual Souvenir
+                    Urmi - Annual Souvenir
                   </Link>
                 </li>
                 <li>
                   <Link to="/publications/utkarsa" className="hover:text-[#ECA445] transition-colors">
-                    Utkarsa — Newsletter
+                    Utkarsa - Newsletter
                   </Link>
                 </li>
                 <li>
@@ -170,12 +170,12 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-[#093060] p-4 border border-[#ECA445]/50">
+            <div className="bg-[#093060] p-5 rounded-2xl border border-[#ECA445]/50 shadow-md">
               <p className="font-display text-xs font-bold uppercase text-[#ECA445] mb-1">Support Our Mission</p>
               <p className="text-xs text-[#F6F1E7]/80 mb-3">Your tax-deductible contribution supports youth scholarships, cultural arts, and Odisha humanitarian relief.</p>
               <Link
                 to="/donate"
-                className="w-full text-center py-2 px-4 bg-[#B31842] text-white font-display text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#901334] transition-colors"
+                className="w-full text-center py-2.5 px-4 bg-[#B31842] text-white font-display text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#901334] rounded-lg transition-colors shadow-sm"
               >
                 <Heart size={14} className="fill-white" /> Make a Donation
               </Link>

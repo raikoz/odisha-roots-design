@@ -214,17 +214,22 @@ body {
   letter-spacing: 0.05em;
   background-color: var(--brand-red);
   color: #FFFFFF;
+  border: 1px solid var(--brand-red);
   padding: 0.85rem 1.75rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
   transition: background-color 0.2s, transform 0.2s;
-  border: 1px solid var(--brand-red);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   background-color: #901334;
   transform: translateY(-2px);
+  color: #FFFFFF !important;
 }
 
 .btn-gold {
@@ -237,14 +242,19 @@ body {
   padding: 0.85rem 1.75rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
   transition: transform 0.2s, background-color 0.2s;
   border: 1px solid var(--brand-gold);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-gold:hover {
   background-color: #dba136;
   transform: translateY(-2px);
+  color: var(--brand-blue) !important;
 }
 
 .btn-outline {
@@ -263,14 +273,21 @@ body {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 0.5rem;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:focus-visible {
   background-color: #141A24 !important;
   color: #FFFFFF !important;
   border-color: #141A24 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(20, 26, 36, 0.15);
+}
+
+.btn-outline:hover *,
+.btn-outline:focus-visible * {
+  color: #FFFFFF !important;
 }
 
 .btn-outline-blue {
@@ -289,14 +306,21 @@ body {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 0.5rem;
 }
 
-.btn-outline-blue:hover {
+.btn-outline-blue:hover,
+.btn-outline-blue:focus-visible {
   background-color: #093060 !important;
   color: #FFFFFF !important;
   border-color: #093060 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(9, 48, 96, 0.2);
+}
+
+.btn-outline-blue:hover *,
+.btn-outline-blue:focus-visible * {
+  color: #FFFFFF !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

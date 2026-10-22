@@ -30,7 +30,7 @@ function LoginPage() {
   return (
     <div className="bg-[#F6F1E7] text-[#141A24] min-h-[80vh] flex flex-col justify-center py-16">
       <div className="mx-auto max-w-md w-full px-5">
-        <div className="bg-white border-4 border-[#141A24] p-8 md:p-10 shadow-2xl space-y-6">
+        <div className="bg-white border border-[#D1C5B4] rounded-2xl p-8 md:p-10 shadow-2xl space-y-6">
           <div className="text-center space-y-2">
             <span className="font-display text-xs font-bold uppercase tracking-widest text-[#B31842]">
               Member Access
@@ -44,7 +44,7 @@ function LoginPage() {
           </div>
 
           {signedIn ? (
-            <div className="p-6 bg-[#F6F1E7] border-2 border-[#093060] text-center space-y-3">
+            <div className="p-6 bg-[#F6F1E7] border border-[#093060] rounded-xl text-center space-y-3">
               <ShieldCheck size={36} className="text-[#093060] mx-auto" />
               <h3 className="font-display text-lg font-bold uppercase">Welcome Back!</h3>
               <p className="text-xs text-[#141A24]/80 font-sans">
@@ -68,7 +68,7 @@ function LoginPage() {
                     placeholder="name@domain.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2.5 border-2 border-[#141A24] text-sm font-sans"
+                    className="w-full pl-9 pr-4 py-2.5 border border-[#D1C5B4] rounded-lg text-sm font-sans focus:outline-none focus:border-[#093060] focus:ring-1 focus:ring-[#093060]"
                   />
                 </div>
               </div>
@@ -90,14 +90,14 @@ function LoginPage() {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-9 pr-4 py-2.5 border-2 border-[#141A24] text-sm font-sans"
+                    className="w-full pl-9 pr-4 py-2.5 border border-[#D1C5B4] rounded-lg text-sm font-sans focus:outline-none focus:border-[#093060] focus:ring-1 focus:ring-[#093060]"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#B31842] text-white font-display text-xs font-bold uppercase tracking-widest hover:bg-[#901334] transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#B31842] text-white font-display text-xs font-bold uppercase tracking-widest hover:bg-[#901334] rounded-lg transition-colors flex items-center justify-center gap-2 shadow-md"
               >
                 <LogIn size={14} /> Sign In to Portal
               </button>

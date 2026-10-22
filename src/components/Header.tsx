@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Menu, X, Heart } from "lucide-react";
+import { ChevronDown, Menu, X, Heart, Compass, Sparkles } from "lucide-react";
 import { PatternBanner } from "./PatternBanner";
 
 export const Header: React.FC = () => {
@@ -13,40 +13,10 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#F6F1E7]/95 backdrop-blur-md border-b border-[#D1C5B4]/60">
-      {/* Top Identity Banner */}
-      <div className="bg-[#093060] text-[#F6F1E7] text-xs font-semibold px-4 py-1.5 flex justify-between items-center border-b border-[#ECA445]/40">
-        <div className="mx-auto max-w-[1480px] w-full flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <span className="font-odia text-[#ECA445] text-sm">ଓଡ଼ିଶା ସମାଜ</span>
-            <span className="opacity-40">|</span>
-            <span className="font-display tracking-wider uppercase text-[11px]">
-              The Odisha Society of the Americas · Founded 1969
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-5 text-[11px] font-display uppercase tracking-wider">
-            <Link to="/about/vision-mission" className="hover:text-[#ECA445] transition-colors">
-              Article II Vision
-            </Link>
-            <span className="opacity-40">·</span>
-            <Link to="/donate" className="text-[#ECA445] hover:underline flex items-center gap-1 font-bold">
-              <Heart size={12} className="fill-[#ECA445]" /> Donate to OSA
-            </Link>
-            <span className="opacity-40">·</span>
-            <Link to="/login" className="hover:text-[#ECA445] transition-colors">
-              Sign In
-            </Link>
-            <span className="opacity-40">·</span>
-            <Link to="/register" className="text-[#B31842] bg-[#F6F1E7] px-2 py-0.5 font-bold hover:bg-white transition-colors">
-              Join OSA
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Official OSA Logo - Clean transparent background, balanced compact proportions */}
+          {/* Official OSA Logo - Transparent high-res emblem */}
           <Link
             to="/"
             className="flex items-center py-1 transition-opacity hover:opacity-90"
@@ -55,7 +25,7 @@ export const Header: React.FC = () => {
             <img
               src="/assets/osa_logo.png"
               alt="The Odisha Society of the Americas"
-              className="h-[36px] md:h-[42px] w-auto object-contain select-none"
+              className="h-[40px] md:h-[46px] w-auto object-contain select-none"
             />
           </Link>
 
@@ -71,7 +41,7 @@ export const Header: React.FC = () => {
                 About Us <ChevronDown size={14} />
               </button>
               {activeDropdown === "about" && (
-                <div className="absolute top-full left-0 w-64 bg-white border-2 border-[#141A24] shadow-xl py-2 z-50">
+                <div className="absolute top-full left-0 w-64 bg-white border border-[#D1C5B4] rounded-xl shadow-2xl py-2 z-50">
                   <Link
                     to="/about/vision-mission"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
@@ -106,7 +76,7 @@ export const Header: React.FC = () => {
                     to="/leadership-program"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
                   >
-                    Past Leadership (1969–Present)
+                    Past Leadership (1969-Present)
                   </Link>
                 </div>
               )}
@@ -122,7 +92,7 @@ export const Header: React.FC = () => {
                 Members <ChevronDown size={14} />
               </button>
               {activeDropdown === "members" && (
-                <div className="absolute top-full left-0 w-64 bg-white border-2 border-[#141A24] shadow-xl py-2 z-50">
+                <div className="absolute top-full left-0 w-64 bg-white border border-[#D1C5B4] rounded-xl shadow-2xl py-2 z-50">
                   <Link
                     to="/members/benefits"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
@@ -149,7 +119,7 @@ export const Header: React.FC = () => {
                 Events <ChevronDown size={14} />
               </button>
               {activeDropdown === "events" && (
-                <div className="absolute top-full left-0 w-64 bg-white border-2 border-[#141A24] shadow-xl py-2 z-50">
+                <div className="absolute top-full left-0 w-64 bg-white border border-[#D1C5B4] rounded-xl shadow-2xl py-2 z-50">
                   <Link
                     to="/activities/convention"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
@@ -160,7 +130,7 @@ export const Header: React.FC = () => {
                     to="/activities/convention/past"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
                   >
-                    Past Conventions (1969–2025)
+                    Past Conventions (1969-2025)
                   </Link>
                   <Link
                     to="/activities/awards"
@@ -197,18 +167,18 @@ export const Header: React.FC = () => {
                 Publications <ChevronDown size={14} />
               </button>
               {activeDropdown === "publications" && (
-                <div className="absolute top-full right-0 w-64 bg-white border-2 border-[#141A24] shadow-xl py-2 z-50">
+                <div className="absolute top-full right-0 w-64 bg-white border border-[#D1C5B4] rounded-xl shadow-2xl py-2 z-50">
                   <Link
                     to="/publications/urmi"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
                   >
-                    Urmi — Souvenir
+                    Urmi - Souvenir
                   </Link>
                   <Link
                     to="/publications/utkarsa"
                     className="block px-4 py-2 text-xs font-display font-semibold uppercase hover:bg-[#F6F1E7] hover:text-[#B31842]"
                   >
-                    Utkarsa — Newsletter
+                    Utkarsa - Newsletter
                   </Link>
                   <Link
                     to="/news"
@@ -232,35 +202,65 @@ export const Header: React.FC = () => {
               )}
             </div>
 
-            <Link
-              to="/donate"
-              className="ml-2 px-4 py-2.5 font-display text-xs font-bold uppercase tracking-wider bg-[#B31842] text-white hover:bg-[#901334] transition-all transform hover:-translate-y-0.5 shadow-sm"
-            >
-              Donate
-            </Link>
+            {/* 2-3 Icon buttons: Article II Vision & Donation */}
+            <div className="flex items-center gap-1 ml-2 pl-2 border-l border-[#D1C5B4]/60">
+              <Link
+                to="/about/vision-mission"
+                title="Article II Vision & Purpose"
+                className="p-2 text-[#093060] hover:text-[#B31842] hover:bg-[#E2D2BB]/40 rounded-lg transition-colors flex items-center justify-center"
+                aria-label="Article II Vision"
+              >
+                <Compass size={18} />
+              </Link>
+              <Link
+                to="/donate"
+                title="Donate to OSA"
+                className="p-2 text-[#B31842] hover:bg-[#B31842]/10 rounded-lg transition-colors flex items-center justify-center"
+                aria-label="Donate to OSA"
+              >
+                <Heart size={18} className="fill-[#B31842]" />
+              </Link>
+            </div>
 
+            {/* Secondary CTA: Become a Member */}
             <Link
               to="/register"
-              className="ml-2 px-4 py-2.5 font-display text-xs font-bold uppercase tracking-wider bg-[#ECA445] text-[#093060] border border-[#ECA445] hover:bg-[#dba136] transition-all transform hover:-translate-y-0.5 shadow-sm"
+              className="ml-2 px-4 py-2 font-display text-xs font-bold uppercase tracking-wider text-[#141A24] border-2 border-[#141A24] hover:bg-[#141A24] hover:text-white rounded-lg transition-all duration-200"
             >
               Become a Member
             </Link>
+
+            {/* Primary CTA: Sign In */}
+            <Link
+              to="/login"
+              className="ml-2 px-5 py-2 font-display text-xs font-bold uppercase tracking-wider bg-[#B31842] text-white hover:bg-[#901334] rounded-lg transition-all duration-200 shadow-sm hover:shadow"
+            >
+              Sign In
+            </Link>
           </nav>
 
-          {/* Mobile menu button */}
-          <div className="flex xl:hidden items-center gap-3">
+          {/* Mobile menu actions */}
+          <div className="flex xl:hidden items-center gap-2">
             <Link
               to="/donate"
-              className="px-3 py-1.5 font-display text-xs font-bold uppercase bg-[#B31842] text-white"
+              title="Donate"
+              className="p-2 text-[#B31842] hover:bg-[#B31842]/10 rounded-lg"
+              aria-label="Donate"
             >
-              Donate
+              <Heart size={20} className="fill-[#B31842]" />
+            </Link>
+            <Link
+              to="/login"
+              className="px-3 py-1.5 font-display text-xs font-bold uppercase bg-[#B31842] text-white rounded-lg"
+            >
+              Sign In
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 border border-[#141A24] text-[#141A24]"
+              className="p-2 rounded-lg border border-[#D1C5B4] text-[#141A24] hover:bg-[#E2D2BB]/30"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -271,7 +271,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#F6F1E7] border-b-2 border-[#141A24] px-5 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
+        <div className="xl:hidden bg-[#F6F1E7] border-b-2 border-[#D1C5B4] px-5 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
           <div className="space-y-2">
             <p className="font-display text-xs font-bold uppercase text-[#B31842] tracking-widest">About Us</p>
             <div className="pl-3 space-y-2 border-l-2 border-[#B31842]">

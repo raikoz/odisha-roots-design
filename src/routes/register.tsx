@@ -80,9 +80,9 @@ function RegisterPage() {
       <div className="mx-auto max-w-[1480px] px-5 py-16 md:px-10 lg:py-20">
         <div className="grid lg:grid-cols-[1.8fr_1.2fr] gap-12 items-start">
           {/* Registration Form */}
-          <div className="bg-white border-2 border-[#141A24] p-8 md:p-12 shadow-xl">
+          <div className="bg-white border border-[#D1C5B4] rounded-2xl p-8 md:p-12 shadow-xl">
             {submitted ? (
-              <div className="p-8 bg-[#F6F1E7] border-2 border-[#B31842] text-center space-y-4">
+              <div className="p-8 bg-[#F6F1E7] border border-[#B31842] rounded-xl text-center space-y-4">
                 <CheckCircle2 size={48} className="text-[#B31842] mx-auto" />
                 <h3 className="font-display text-2xl font-bold uppercase text-[#141A24]">
                   Membership Application Received!
@@ -105,7 +105,7 @@ function RegisterPage() {
                     {tiers.map((t) => (
                       <label
                         key={t.id}
-                        className={`p-4 border-2 cursor-pointer transition-colors flex flex-col justify-between ${
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-colors flex flex-col justify-between ${
                           selectedTier === t.id
                             ? "border-[#B31842] bg-[#F6F1E7]"
                             : "border-[#D1C5B4] hover:border-[#141A24]"
@@ -257,7 +257,7 @@ function RegisterPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#B31842] text-white font-display text-sm font-bold uppercase tracking-widest hover:bg-[#901334] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-4 bg-[#B31842] text-white font-display text-sm font-bold uppercase tracking-widest hover:bg-[#901334] transition-colors flex items-center justify-center gap-2 shadow-lg rounded-lg"
                 >
                   <UserPlus size={16} /> Submit Membership Registration
                 </button>
@@ -267,7 +267,7 @@ function RegisterPage() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            <div className="bg-[#093060] text-white p-8 border-2 border-[#141A24] space-y-4">
+            <div className="bg-[#093060] text-white p-8 rounded-2xl border border-white/20 space-y-4 shadow-lg">
               <ShieldCheck size={28} className="text-[#ECA445]" />
               <h3 className="font-display text-xl font-bold uppercase text-[#ECA445]">
                 Why Permanent Membership?
@@ -288,14 +288,14 @@ function RegisterPage() {
               </ul>
             </div>
 
-            <div className="bg-white border-2 border-[#141A24] p-6 space-y-3">
+            <div className="bg-white border border-[#D1C5B4] rounded-2xl p-6 space-y-3 shadow-md">
               <p className="font-display text-xs font-bold uppercase text-[#141A24]">
                 Already a Member?
               </p>
               <p className="text-xs text-[#6D737A]">
                 Sign in to verify your membership credentials or update your family directory address.
               </p>
-              <Link to="/login" className="btn-outline text-xs block text-center text-[#141A24] bg-white hover:bg-[#141A24] hover:text-white hover:border-[#141A24] transition-all duration-200">
+              <Link to="/login" className="btn-outline text-xs w-full justify-center rounded-lg">
                 Sign In to Portal
               </Link>
             </div>

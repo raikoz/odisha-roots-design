@@ -5,7 +5,7 @@ import { History, MapPin, CalendarDays, ExternalLink, ArrowRight } from "lucide-
 export const Route = createFileRoute("/activities/convention/past")({
   head: () => ({
     meta: [
-      { title: "Past Conventions Archive (1969–2025) | OSA" },
+      { title: "Past Conventions Archive (1969-2025) | OSA" },
       {
         name: "description",
         content:

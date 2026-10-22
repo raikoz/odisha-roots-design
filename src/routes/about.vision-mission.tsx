@@ -158,7 +158,7 @@ function VisionMissionPage() {
                 </li>
                 <li>
                   <Link to="/leadership-program" className="text-[#B31842] hover:underline flex items-center gap-2">
-                    <ArrowRight size={12} /> Past Presidents (1969–Present)
+                    <ArrowRight size={12} /> Past Presidents (1969-Present)
                   </Link>
                 </li>
               </ul>

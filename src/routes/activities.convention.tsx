@@ -9,7 +9,7 @@ export const Route = createFileRoute("/activities/convention")({
       {
         name: "description",
         content:
-          "Join thousands of Odias across North America in Minneapolis on July 2–4, 2026 for Milana Taranga: Tides of Harmony.",
+          "Join thousands of Odias across North America in Minneapolis on July 2-4, 2026 for Milana Taranga: Tides of Harmony.",
       },
     ],
   }),
@@ -65,7 +65,7 @@ function ConventionPage() {
         <div className="relative z-10 mx-auto max-w-[1480px] px-5 md:px-10">
           <div className="max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 bg-[#ECA445] text-[#093060] px-3 py-1 font-display text-xs font-black uppercase tracking-widest">
-              <Sparkles size={14} /> 57th Annual Gathering · July 2–4, 2026
+              <Sparkles size={14} /> 57th Annual Gathering · July 2-4, 2026
             </div>
 
             <p className="font-odia text-4xl sm:text-5xl text-[#ECA445] font-black">
@@ -87,7 +87,7 @@ function ConventionPage() {
             <div className="flex flex-wrap items-center gap-6 pt-2 text-sm font-display uppercase tracking-wider">
               <div className="flex items-center gap-2 bg-black/30 px-4 py-2 border border-white/20">
                 <CalendarDays size={18} className="text-[#ECA445]" />
-                <span>July 2 – 4, 2026</span>
+                <span>July 2 - 4, 2026</span>
               </div>
               <div className="flex items-center gap-2 bg-black/30 px-4 py-2 border border-white/20">
                 <MapPin size={18} className="text-[#ECA445]" />

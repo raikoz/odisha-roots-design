@@ -77,7 +77,7 @@ function DonatePage() {
       <div className="mx-auto max-w-[1480px] px-5 py-16 md:px-10 lg:py-20">
         <div className="grid lg:grid-cols-[1.8fr_1.2fr] gap-12 items-start">
           {/* Donation Form */}
-          <div className="bg-white border-2 border-[#141A24] p-8 md:p-12 shadow-xl">
+          <div className="bg-white border border-[#D1C5B4] rounded-2xl p-8 md:p-12 shadow-xl">
             <h2 className="font-display text-3xl font-bold uppercase text-[#141A24] mb-2">
               Select Your Contribution
             </h2>
@@ -86,7 +86,7 @@ function DonatePage() {
             </p>
 
             {submitted ? (
-              <div className="p-8 bg-[#F6F1E7] border-2 border-[#B31842] text-center space-y-4">
+              <div className="p-8 bg-[#F6F1E7] border border-[#B31842] rounded-xl text-center space-y-4">
                 <CheckCircle2 size={48} className="text-[#B31842] mx-auto" />
                 <h3 className="font-display text-2xl font-bold uppercase text-[#141A24]">
                   Thank You for Your Generosity!
@@ -112,7 +112,7 @@ function DonatePage() {
                     {causes.map((c) => (
                       <label
                         key={c.title}
-                        className={`flex items-start gap-3 p-4 border-2 cursor-pointer transition-colors ${
+                        className={`flex items-start gap-3 p-4 border-2 rounded-xl cursor-pointer transition-colors ${
                           selectedCause === c.title
                             ? "border-[#B31842] bg-[#F6F1E7]"
                             : "border-[#D1C5B4] hover:border-[#141A24]"
@@ -152,7 +152,7 @@ function DonatePage() {
                           setSelectedAmount(amt);
                           setCustomAmount("");
                         }}
-                        className={`py-3 border-2 font-display text-lg font-black transition-colors ${
+                        className={`py-3 border-2 rounded-xl font-display text-lg font-black transition-colors ${
                           selectedAmount === amt && !customAmount
                             ? "bg-[#B31842] text-white border-[#B31842]"
                             : "border-[#141A24] bg-white text-[#141A24] hover:bg-[#F6F1E7]"
@@ -206,7 +206,7 @@ function DonatePage() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#B31842] text-white font-display text-sm font-bold uppercase tracking-widest hover:bg-[#901334] transition-colors flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-4 bg-[#B31842] text-white font-display text-sm font-bold uppercase tracking-widest hover:bg-[#901334] rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
                 >
                   <Heart size={16} className="fill-white" /> Complete Donation of ${customAmount ? customAmount : selectedAmount}
                 </button>
@@ -216,7 +216,7 @@ function DonatePage() {
 
           {/* Right Sidebar: Other Payment Methods & Employer Match */}
           <div className="space-y-6">
-            <div className="bg-[#093060] text-white p-8 border-2 border-[#141A24] space-y-4">
+            <div className="bg-[#093060] text-white p-8 rounded-2xl border border-white/20 space-y-4 shadow-lg">
               <ShieldCheck size={28} className="text-[#ECA445]" />
               <h3 className="font-display text-xl font-bold uppercase text-[#ECA445]">
                 Direct Giving via Zelle or Check
@@ -224,13 +224,13 @@ function DonatePage() {
               <p className="text-xs text-[#F6F1E7]/85 leading-relaxed font-sans">
                 Prefer zero transaction fees? You can donate directly through Zelle or mail a check payable to:
               </p>
-              <div className="bg-black/20 p-4 font-mono text-xs text-[#F6F1E7] space-y-2 border border-white/20">
+              <div className="bg-black/20 p-4 font-mono text-xs text-[#F6F1E7] space-y-2 border border-white/20 rounded-xl">
                 <p><strong>Zelle:</strong> treasurer@odishasociety.org</p>
                 <p><strong>Mailing Address:</strong><br />The Odisha Society of the Americas<br />100 Powell Place #1722<br />Nashville, TN 37204</p>
               </div>
             </div>
 
-            <div className="bg-white border-2 border-[#141A24] p-6 space-y-3">
+            <div className="bg-white border border-[#D1C5B4] rounded-2xl p-6 space-y-3 shadow-md">
               <div className="flex items-center gap-2 text-[#093060]">
                 <Building size={20} />
                 <h4 className="font-display text-sm font-bold uppercase">Corporate Matching Gifts</h4>

@@ -5,7 +5,7 @@ import { History, Award, CheckCircle2, ChevronRight } from "lucide-react";
 export const Route = createFileRoute("/leadership-program")({
   head: () => ({
     meta: [
-      { title: "Past Leadership (1969–Present) | The Odisha Society of the Americas" },
+      { title: "Past Leadership (1969-Present) | The Odisha Society of the Americas" },
       {
         name: "description",
         content:
@@ -17,20 +17,20 @@ export const Route = createFileRoute("/leadership-program")({
 });
 
 const pastPresidents = [
-  { term: "2023–2025", name: "Sushant Satpathy", location: "Washington DC", convention: "Dallas / Atlantic City" },
-  { term: "2021–2023", name: "Gyan Ranjan Mohanty", location: "Detroit, MI", convention: "Charlotte / Chicago" },
-  { term: "2019–2021", name: "Kuku Das", location: "San Jose, CA", convention: "Virtual / Atlantic City" },
-  { term: "2017–2019", name: "Lalatendu Mohanty", location: "Chicago, IL", convention: "Dearborn / Atlantic City" },
-  { term: "2015–2017", name: "Sushmita Rajhans", location: "Columbus, OH", convention: "Salt Lake City / Rhode Island" },
-  { term: "2013–2015", name: "Sikhanda Satapathy", location: "Austin, TX", convention: "Columbus / Washington DC" },
-  { term: "2011–2013", name: "Annapurna Pandey", location: "Santa Cruz, CA", convention: "Seattle / Chicago" },
-  { term: "2009–2011", name: "Dhirendra Kar", location: "Raleigh, NC", convention: "New Jersey / Detroit" },
-  { term: "2007–2009", name: "Brundaban Patra", location: "Maryland", convention: "Toronto / Chicago" },
-  { term: "2005–2007", name: "Bijoy K. Misra", location: "Boston, MA", convention: "Houston / Dallas" },
-  { term: "2003–2005", name: "Prasanta K. Behera", location: "Texas", convention: "Washington DC / Nashville" },
-  { term: "2001–2003", name: "Sita K. Dash", location: "Minnesota", convention: "Chicago / New Jersey" },
-  { term: "1999–2001", name: "Gopal K. Mohapatra", location: "Pennsylvania", convention: "Cleveland / Toronto" },
-  { term: "1969–1971", name: "Dr. Bhabagrahi Misra", location: "Founding Era", convention: "Inaugural Convention, 1969" },
+  { term: "2023-2025", name: "Sushant Satpathy", location: "Washington DC", convention: "Dallas / Atlantic City" },
+  { term: "2021-2023", name: "Gyan Ranjan Mohanty", location: "Detroit, MI", convention: "Charlotte / Chicago" },
+  { term: "2019-2021", name: "Kuku Das", location: "San Jose, CA", convention: "Virtual / Atlantic City" },
+  { term: "2017-2019", name: "Lalatendu Mohanty", location: "Chicago, IL", convention: "Dearborn / Atlantic City" },
+  { term: "2015-2017", name: "Sushmita Rajhans", location: "Columbus, OH", convention: "Salt Lake City / Rhode Island" },
+  { term: "2013-2015", name: "Sikhanda Satapathy", location: "Austin, TX", convention: "Columbus / Washington DC" },
+  { term: "2011-2013", name: "Annapurna Pandey", location: "Santa Cruz, CA", convention: "Seattle / Chicago" },
+  { term: "2009-2011", name: "Dhirendra Kar", location: "Raleigh, NC", convention: "New Jersey / Detroit" },
+  { term: "2007-2009", name: "Brundaban Patra", location: "Maryland", convention: "Toronto / Chicago" },
+  { term: "2005-2007", name: "Bijoy K. Misra", location: "Boston, MA", convention: "Houston / Dallas" },
+  { term: "2003-2005", name: "Prasanta K. Behera", location: "Texas", convention: "Washington DC / Nashville" },
+  { term: "2001-2003", name: "Sita K. Dash", location: "Minnesota", convention: "Chicago / New Jersey" },
+  { term: "1999-2001", name: "Gopal K. Mohapatra", location: "Pennsylvania", convention: "Cleveland / Toronto" },
+  { term: "1969-1971", name: "Dr. Bhabagrahi Misra", location: "Founding Era", convention: "Inaugural Convention, 1969" },
 ];
 
 function PastLeadershipPage() {

@@ -5,7 +5,7 @@ import { BookOpen, Download, Send, Calendar, CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/publications/urmi")({
   head: () => ({
     meta: [
-      { title: "Urmi — Annual Souvenir | The Odisha Society of the Americas" },
+      { title: "Urmi  -  Annual Souvenir | The Odisha Society of the Americas" },
       {
         name: "description",
         content:
@@ -35,7 +35,7 @@ function UrmiPage() {
               Flagship Annual Cultural Souvenir
             </span>
             <p className="font-odia text-3xl md:text-4xl text-[#ECA445]">
-              ଉର୍ମି — ବାର୍ଷିକ ସାହିତ୍ୟ ସ୍ମରଣିକା
+              ଉର୍ମି  -  ବାର୍ଷିକ ସାହିତ୍ୟ ସ୍ମରଣିକା
             </p>
             <h1 className="font-display text-5xl sm:text-7xl font-black uppercase tracking-tight leading-none">
               Urmi Souvenir
@@ -136,7 +136,7 @@ function UrmiPage() {
                 Also Explore
               </h4>
               <Link to="/publications/utkarsa" className="block text-xs font-display uppercase font-bold text-[#B31842] hover:underline">
-                Utkarsa — Quarterly Newsletter ↗
+                Utkarsa - Quarterly Newsletter ↗
               </Link>
               <Link to="/gallery" className="block text-xs font-display uppercase font-bold text-[#B31842] hover:underline">
                 Convention Photo Archives ↗
